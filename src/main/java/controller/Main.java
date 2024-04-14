@@ -46,7 +46,7 @@ public class Main {
         pelicula3.agregarActor((Actor) actor8);
 
         //Peliculas ganadoras
-        System.out.println("Peliculas ganadoras de la categoria ACCION: " + gestion.peliculasGanadoras(CategoriaPelicula.ACCION));
+        System.out.println("Peliculas ganadoras de la categoria acción: " + gestion.peliculasGanadoras(CategoriaPelicula.ACCION));
 
 
 

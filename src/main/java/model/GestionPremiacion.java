@@ -31,7 +31,7 @@ public class GestionPremiacion {
 		List<Pelicula> peliculasGanadoras = new ArrayList<Pelicula>();
 
 		for(Pelicula pelicula : peliculas){
-			if(pelicula.getCategoriaPelicula().equals(categoria)){
+			if(pelicula.getCategoriaPelicula().equals(categoria) && pelicula.isPeliculaGanadora()){
 				peliculasGanadoras.add(pelicula);
 			}
 		}

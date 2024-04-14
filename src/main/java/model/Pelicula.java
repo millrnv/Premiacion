@@ -15,13 +15,13 @@ public class Pelicula {
 	public CategoriaPelicula CategoriaPelicula;
 
 	//Constructor
-	public Pelicula(Date fechaEstreno, String titulo, double duracion, String sinopsis, boolean peliculaGanadora, CategoriaPelicula CategoriaPelicula){
+	public Pelicula(Date fechaEstreno, String titulo, double duracion, String sinopsis, boolean peliculaGanadora, CategoriaPelicula categoriaPelicula){
 		this.fechaEstreno = fechaEstreno;
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.sinopsis = sinopsis;
 		this.peliculaGanadora = peliculaGanadora;
-		this.CategoriaPelicula = CategoriaPelicula;
+		this.CategoriaPelicula = categoriaPelicula;
 		this.actores = new ArrayList<>();
 
 	}
@@ -92,6 +92,11 @@ public class Pelicula {
 
 	public void setDirector(Director director) {
 		this.director = director;
+	}
+
+	public String toString(){
+		return "Titulo: " + titulo + " - Director: " + director.getNombre();
+
 	}
 
 
