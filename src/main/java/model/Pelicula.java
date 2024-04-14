@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Pelicula {
 	private Date fechaEstreno;
@@ -8,8 +10,21 @@ public class Pelicula {
 	private double duracion;
 	private String sinopsis;
 	private Director director;
-	private Actor actor;
-	public CategoriaPelicula unnamed_CategoriaPelicula_;
+	private List<Actor> actores;
+	private boolean peliculaGanadora;
+	public CategoriaPelicula CategoriaPelicula;
+
+	//Constructor
+	public Pelicula(Date fechaEstreno, String titulo, double duracion, String sinopsis, boolean peliculaGanadora, CategoriaPelicula CategoriaPelicula){
+		this.fechaEstreno = fechaEstreno;
+		this.titulo = titulo;
+		this.duracion = duracion;
+		this.sinopsis = sinopsis;
+		this.peliculaGanadora = peliculaGanadora;
+		this.CategoriaPelicula = CategoriaPelicula;
+		this.actores = new ArrayList<>();
+
+	}
 
 	public Date getFechaEstreno() {
 		return this.fechaEstreno;
@@ -42,4 +57,42 @@ public class Pelicula {
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
 	}
+
+	public boolean isPeliculaGanadora() {
+		return this.peliculaGanadora;
+	}
+
+	public void setPeliculaGanadora(boolean peliculaGanadora) {
+		this.peliculaGanadora = peliculaGanadora;
+	}
+
+	public CategoriaPelicula getCategoriaPelicula() {
+		return this.CategoriaPelicula;
+	}
+
+	public void setCategoriaPelicula(CategoriaPelicula CategoriaPelicula) {
+		this.CategoriaPelicula = CategoriaPelicula;
+	}
+
+	public List<Actor> getActores() {
+		return actores;
+	}
+
+	public void setActores(List<Actor> actores) {
+		this.actores = actores;
+	}
+
+	public void agregarActor(Actor actor){
+		actores.add(actor);
+	}
+
+	public Director getDirector() {
+		return director;
+	}
+
+	public void setDirector(Director director) {
+		this.director = director;
+	}
+
+
 }

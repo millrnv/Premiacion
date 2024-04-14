@@ -8,20 +8,66 @@ public class GestionPremiacion {
 	private ArrayList<Jurado> jurados = new ArrayList<Jurado>();
 	private ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
 
-
-	public void peliculasGanadoras(CategoriaPelicula categoria) {
-		throw new UnsupportedOperationException();
+	//Constructor
+	public GestionPremiacion(){
 	}
 
-	public List<Actor> todosLosActoresParticipantesUnaPelicula() {
-		throw new UnsupportedOperationException();
+
+	public void agregarDirector(Director director){
+		directores.add(director);
+	}
+
+	public void agregarJurado(Jurado jurado){
+		jurados.add(jurado);
+	}
+
+	public void agregarPelicula(Pelicula pelicula){
+		peliculas.add(pelicula);
+	}
+
+
+
+	public List<Pelicula> peliculasGanadoras(CategoriaPelicula categoria) {
+		List<Pelicula> peliculasGanadoras = new ArrayList<Pelicula>();
+
+		for(Pelicula pelicula : peliculas){
+			if(pelicula.getCategoriaPelicula().equals(categoria)){
+				peliculasGanadoras.add(pelicula);
+			}
+		}
+		return peliculasGanadoras;
+	}
+
+	public List<Actor> todosLosActoresParticipantesUnaPelicula(Pelicula pelicula) {
+		List<Actor> actoresPelicula = new ArrayList<Actor>();
+		for(Actor actor : pelicula.getActores()){
+			actoresPelicula.add(actor);
+		}
+		return actoresPelicula;
 	}
 
 	public List<Actor> actoresPeliculaGanadora() {
-		throw new UnsupportedOperationException();
+		List<Actor> actoresPeliculaGanadora = new ArrayList<Actor>();
+		for(Pelicula pelicula : peliculas){
+			if(pelicula.isPeliculaGanadora()){
+				for(Actor actor : pelicula.getActores()){
+					actoresPeliculaGanadora.add(actor);
+				}
+			}
+		}
+		return actoresPeliculaGanadora;
 	}
 
 	public List<Participante> directoresYActoresQueSonPartePremiacion() {
-		throw new UnsupportedOperationException();
+		List<Participante> participantes = new ArrayList<Participante>();
+		for(Director director : directores){
+			participantes.add(director);
+		}
+		for(Pelicula pelicula : peliculas){
+			for(Actor actor : pelicula.getActores()){
+				participantes.add(actor);
+			}
+		}
+		return participantes;
 	}
 }
